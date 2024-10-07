@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using MechanicPortal.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<MechanicPortalContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("MechanicPortalContext") ?? throw new InvalidOperationException("Connection string 'MechanicPortalContext' not found.")));
 
 var app = builder.Build();
 
