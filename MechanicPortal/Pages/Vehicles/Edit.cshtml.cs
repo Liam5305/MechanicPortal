@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MechanicPortal.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MechanicPortal.Data;
-using MechanicPortal.Models;
 
 namespace MechanicPortal.Pages.Vehicles
 {
@@ -30,7 +24,7 @@ namespace MechanicPortal.Pages.Vehicles
                 return NotFound();
             }
 
-            var vehicle =  await _context.Vehicle.FirstOrDefaultAsync(m => m.Id == id);
+            var vehicle = await _context.Vehicle.FirstOrDefaultAsync(m => m.Id == id);
             if (vehicle == null)
             {
                 return NotFound();

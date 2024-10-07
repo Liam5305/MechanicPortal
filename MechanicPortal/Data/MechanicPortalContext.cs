@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using MechanicPortal.Models;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace MechanicPortal.Data
 {
     public class MechanicPortalContext : DbContext
     {
-        public MechanicPortalContext (DbContextOptions<MechanicPortalContext> options)
+        public MechanicPortalContext(DbContextOptions<MechanicPortalContext> options)
             : base(options)
         {
         }
