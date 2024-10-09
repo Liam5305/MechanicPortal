@@ -1,0 +1,63 @@
+﻿@page
+@model MechanicPortal.Pages.Employees.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employee Portal</h1>
+<div class="text-left">
+    <h5>Use this page to add, edit, delete or view the details of vehicles that are being prepped for an MOT / Service.</h5>
+</div>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].DoB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Employee) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.EmployeeId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.EmployeeId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.EmployeeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

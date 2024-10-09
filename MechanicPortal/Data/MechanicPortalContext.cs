@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MechanicPortal.Models;
 
 namespace MechanicPortal.Data
 {
@@ -10,5 +11,6 @@ namespace MechanicPortal.Data
         }
 
         public DbSet<MechanicPortal.Models.Vehicle> Vehicle { get; set; } = default!;
+        public DbSet<MechanicPortal.Models.Employee> Employee { get; set; } = default!;
     }
 }
