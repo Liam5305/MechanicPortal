@@ -21,7 +21,7 @@ namespace MechanicPortal.Migrations
                     LastName = table.Column<string>(type: "TEXT", nullable: false),
                     DoB = table.Column<string>(type: "TEXT", nullable: false),
                     Country = table.Column<string>(type: "TEXT", nullable: false),
-                    Active = table.Column<bool>(type: "INTEGER", nullable: false)
+                    _Active = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

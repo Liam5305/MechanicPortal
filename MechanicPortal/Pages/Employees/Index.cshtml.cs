@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MechanicPortal.Data;
 using MechanicPortal.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MechanicPortal.Pages.Employees
 {
@@ -20,10 +21,23 @@ namespace MechanicPortal.Pages.Employees
         }
 
         public IList<Employee> Employee { get;set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public string? SearchString { get; set; }
+
+        public SelectList? LastName { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string? FullName { get; set; }
 
         public async Task OnGetAsync()
         {
-            Employee = await _context.Employee.ToListAsync();
+            var employees = from e in _context.Employee
+                           select e;
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                employees = employees.Where(s => s.LastName.Contains(SearchString));
+            }
+            Employee = await employees.ToListAsync();
         }
     }
 }
