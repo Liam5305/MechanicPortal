@@ -6,14 +6,22 @@ namespace MechanicPortal.Models
     public class Vehicle
     {
         public int Id { get; set; }
+        // Make Properties
+        [Required]
         public string Make { get; set; } = string.Empty;
+        //
+        // Model Properties
+        [Required]
         public string Model { get; set; } = string.Empty;
+        //
         // Engine Size Properties
+        [Required]
         [Display(Name = "Engine Size")]
         [DataType(DataType.Text)]
         public decimal EngineS { get; set; }
         //
         // Registered Date Properties
+        [Required]
         [Display(Name = "First Registered")]
         [DataType(DataType.Date)]
         public DateTime FirstRegistered { get; set; }
@@ -32,6 +40,7 @@ namespace MechanicPortal.Models
         public DateTime MOTTime { get; set; }
         //
         // Price Properties
+        [Required]
         [Column(TypeName = "decimal(18, 2)")]
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
