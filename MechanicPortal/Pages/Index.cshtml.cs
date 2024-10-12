@@ -58,6 +58,7 @@ namespace MechanicPortal.Pages
                             END AS Country, 
                             COUNT(*) as Count
                             FROM Employee
+                            WHERE Active = 1
                             GROUP BY Country
                             ORDER BY Count DESC
                             LIMIT 20";
@@ -107,6 +108,7 @@ namespace MechanicPortal.Pages
                         END AS Make, 
                         COUNT(*) as Count
                     FROM Vehicle
+                    WHERE IsMOTd = 0
                     GROUP BY Make
                     ORDER BY Count DESC
                     LIMIT 20";
