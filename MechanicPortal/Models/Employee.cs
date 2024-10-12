@@ -7,7 +7,7 @@ namespace MechanicPortal.Models
     public class Employee
     {
         public int EmployeeId { get; set; }
-        
+
         [Required]
         [MinLength(3, ErrorMessage = "First name must be more than 2 characters")]
         [Display(Name = "First Name")]
