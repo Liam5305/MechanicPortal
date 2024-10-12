@@ -27,7 +27,7 @@ namespace MechanicPortal.Models
         public bool IsMOTd { get; set; }
         //
         // MOT Time Date Properties
-        [Display(Name = "MOT Time")]
+        [Display(Name = "MOT Date")]
         [DataType(DataType.Date)]
         public DateTime MOTTime { get; set; }
         //

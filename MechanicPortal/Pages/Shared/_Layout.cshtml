@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-page="/Index">MechanicPortal</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">MechanicPortal</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,11 +24,33 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Vehicles/Index">Vehicles</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Employees/Index">Employee</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Employees/Index">Employees</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Vehicles/Index">Vehicles</a>
                         </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <span class="nav-link text-dark">Welcome, @User.Identity.Name!</span>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Admin/Dashboard">Admin</a>
+                            </li>
+                            <li class="nav-item">
+                                <form class="form-inline" asp-page="/Index" method="post">
+                                    <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Admin/AdminLogin">Login</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -42,7 +64,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - MechanicPortal - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - MechanicPortal - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 

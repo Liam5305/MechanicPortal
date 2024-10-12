@@ -1,11 +1,22 @@
 ﻿using MechanicPortal.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<MechanicPortalContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("MechanicPortalContext") ?? throw new InvalidOperationException("Connection string 'MechanicPortalContext' not found.")));
+
+// Add authentication services
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Admin/AdminLogin";
+        options.AccessDeniedPath = "/Admin/AccessDenied";
+        options.LogoutPath = "/Admin/Logout";
+    });
 
 var app = builder.Build();
 
@@ -19,9 +30,10 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 
+// Add authentication middleware
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

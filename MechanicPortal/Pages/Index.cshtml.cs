@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.Sqlite;
 using Newtonsoft.Json;
@@ -10,6 +13,12 @@ namespace MechanicPortal.Pages
         private readonly ILogger<IndexModel> _logger;
         public string? EmployeeData { get; set; }
         public string? VehicleData { get; set; }
+
+        public async Task<IActionResult> OnPost()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToPage("/Admin/AdminLogin");
+        }
 
         public IndexModel(ILogger<IndexModel> logger)
         {

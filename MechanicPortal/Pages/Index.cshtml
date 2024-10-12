@@ -29,12 +29,10 @@
 <br />
 <br />
 <div class="fw-bold"style="text-decoration-line:underline">
-    <h4>On this page, you will see an outline of what we offer.</h4>
+    <h4>On this page, you will be shown important information.</h4>
 </div>
 <div class="text-left">
-    <h6>This Mechanic Portal will offer Garages and Mechanics the ability to have a 
-        universal home page where they can conduct Services, MOT, Repairs and have all this information
-        stored on the one Web Application.
+    <h6>As shown in the graphs below, you can briefly see what vehicles have a pending MOT and employees that have been added.
     </h6>
 </div>
 
@@ -52,11 +50,11 @@
     </div>
 </div>
 
-<div style="">
+@* <div style="">
     <h4>Debug Info:</h4>
     <pre>Employee Data: @Model.EmployeeData</pre>
     <pre>Vehicle Data: @Model.VehicleData</pre>
-</div>
+</div> *@
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -69,6 +67,35 @@
         console.log('Employee Data:', employeeData);
         console.log('Vehicle Data:', vehicleData);
 
+        function groupCountries(data) {
+            const ukCountries = ['Wales', 'Scotland', 'Ireland', 'England'];
+            const africanCountries = ['Zimbabwe', 'Ghana', 'Nigeria', 'South Africa', 'Rwanda', 'Malawi', 'Mozambique', 'Zambia', 'Angola', 'Botswana'];
+
+            let ukTotal = 0;
+            let africaTotal = 0;
+
+            let groupedData = data.reduce((acc, item) => {
+                if (ukCountries.includes(item.Label)) {
+                    ukTotal += item.Value;
+                } else if (africanCountries.includes(item.Label)) {
+                    africaTotal += item.Value;
+                } else {
+                    acc.push(item);
+                }
+                return acc;
+            }, []);
+
+            if (ukTotal > 0) {
+                groupedData.push({ Label: 'UK', Value: ukTotal });
+            }
+
+            if (africaTotal > 0) {
+                groupedData.push({ Label: 'Africa', Value: africaTotal });
+            }
+
+            return groupedData;
+        }
+
         function createPieChart(elementId, data, title) {
             var ctx = document.getElementById(elementId);
             if (!ctx) {
@@ -79,13 +106,17 @@
                 console.error('No data available for chart:', title);
                 return;
             }
+
+            // Group countries before creating the chart
+            var groupedData = groupCountries(data);
+
             try {
                 new Chart(ctx, {
                     type: 'pie',
                     data: {
-                        labels: data.map(item => item.Label),
+                        labels: groupedData.map(item => item.Label),
                         datasets: [{
-                            data: data.map(item => item.Value),
+                            data: groupedData.map(item => item.Value),
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.8)',
                                 'rgba(54, 162, 235, 0.8)',
@@ -111,7 +142,7 @@
             }
         }
 
-        createPieChart('employeeChart', employeeData, 'Employees added to Portal');
-        createPieChart('vehicleChart', vehicleData, 'Vehicles that need MOTd');
+        createPieChart('employeeChart', employeeData, 'Users added to Portal');
+        createPieChart('vehicleChart', vehicleData, 'Vehicles that need MOT');
     </script>
 }

@@ -20,6 +20,7 @@ namespace MechanicPortal.Models
 
         [Required]
         [Display(Name = "Date of Birth")]
+        [DataType(DataType.Date)]
         public string DoB { get; set; } = string.Empty;
 
         [Required]
