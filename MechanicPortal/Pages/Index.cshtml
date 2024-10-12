@@ -5,6 +5,113 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome Home</h1>
 </div>
+
+@section Styles {
+    <style>
+        .card-img img {
+            position: absolute;
+            top: 100px;
+            left: 20px;
+            width: 200px;
+            height: auto;
+                }
+    </style>
+}
+
+<div class="container">
+    <div class="card-img">
+        <img src="@Url.Content("~/Images/MechanicPortalLogo.png")" alt="Logo" />
+    </div>
+</div>
+
+<br />
+<br />
+<div class="fw-bold"style="text-decoration-line:underline">
+    <h4>On this page, you will see an outline of what we offer.</h4>
+</div>
+<div class="text-left">
+    <h6>This Mechanic Portal will offer Garages and Mechanics the ability to have a 
+        universal home page where they can conduct Services, MOT, Repairs and have all this information
+        stored on the one Web Application.
+    </h6>
+</div>
+
+<!-- Chart section -->
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="chart-container">
+            <canvas id="employeeChart"></canvas>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="chart-container">
+            <canvas id="vehicleChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<div style="">
+    <h4>Debug Info:</h4>
+    <pre>Employee Data: @Model.EmployeeData</pre>
+    <pre>Vehicle Data: @Model.VehicleData</pre>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        console.log('Chart.js loaded:', !!window.Chart);
+
+        var employeeData = @Html.Raw(Model.EmployeeData ?? "[]");
+        var vehicleData = @Html.Raw(Model.VehicleData ?? "[]");
+
+        console.log('Employee Data:', employeeData);
+        console.log('Vehicle Data:', vehicleData);
+
+        function createPieChart(elementId, data, title) {
+            var ctx = document.getElementById(elementId);
+            if (!ctx) {
+                console.error('Cannot find element with id:', elementId);
+                return;
+            }
+            if (!data || data.length === 0) {
+                console.error('No data available for chart:', title);
+                return;
+            }
+            try {
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: data.map(item => item.Label),
+                        datasets: [{
+                            data: data.map(item => item.Value),
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.8)',
+                                'rgba(54, 162, 235, 0.8)',
+                                'rgba(255, 206, 86, 0.8)',
+                                'rgba(75, 192, 192, 0.8)',
+                                'rgba(153, 102, 255, 0.8)',
+                            ]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: title
+                            }
+                        }
+                    }
+                });
+                console.log('Chart created successfully:', title);
+            } catch (error) {
+                console.error('Error creating chart:', title, error);
+            }
+        }
+
+        createPieChart('employeeChart', employeeData, 'Employees added to Portal');
+        createPieChart('vehicleChart', vehicleData, 'Vehicles added by Make');
+    </script>
+}

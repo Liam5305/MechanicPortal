@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using MechanicPortal.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using MechanicPortal.Data;
-using MechanicPortal.Models;
 
 namespace MechanicPortal.Pages.Vehicles
 {
@@ -19,7 +13,7 @@ namespace MechanicPortal.Pages.Vehicles
             _context = context;
         }
 
-        public IList<Vehicle> Vehicle { get;set; } = default!;
+        public IList<Vehicle> Vehicle { get; set; } = default!;
 
         public async Task OnGetAsync()
         {

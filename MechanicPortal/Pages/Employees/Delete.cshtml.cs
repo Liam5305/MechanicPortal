@@ -1,9 +1,14 @@
-﻿using MechanicPortal.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using MechanicPortal.Data;
+using MechanicPortal.Models;
 
-namespace MechanicPortal.Pages.Vehicles
+namespace MechanicPortal.Pages.Employees
 {
     public class DeleteModel : PageModel
     {
@@ -15,7 +20,7 @@ namespace MechanicPortal.Pages.Vehicles
         }
 
         [BindProperty]
-        public Vehicle Vehicle { get; set; } = default!;
+        public Employee Employee { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -24,15 +29,15 @@ namespace MechanicPortal.Pages.Vehicles
                 return NotFound();
             }
 
-            var vehicle = await _context.Vehicle.FirstOrDefaultAsync(m => m.Id == id);
+            var employee = await _context.Employee.FirstOrDefaultAsync(m => m.EmployeeId == id);
 
-            if (vehicle == null)
+            if (employee == null)
             {
                 return NotFound();
             }
             else
             {
-                Vehicle = vehicle;
+                Employee = employee;
             }
             return Page();
         }
@@ -44,11 +49,11 @@ namespace MechanicPortal.Pages.Vehicles
                 return NotFound();
             }
 
-            var vehicle = await _context.Vehicle.FindAsync(id);
-            if (vehicle != null)
+            var employee = await _context.Employee.FindAsync(id);
+            if (employee != null)
             {
-                Vehicle = vehicle;
-                _context.Vehicle.Remove(Vehicle);
+                Employee = employee;
+                _context.Employee.Remove(Employee);
                 await _context.SaveChangesAsync();
             }
 

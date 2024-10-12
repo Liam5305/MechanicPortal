@@ -3,6 +3,7 @@ using System;
 using MechanicPortal.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MechanicPortal.Migrations
 {
     [DbContext(typeof(MechanicPortalContext))]
-    partial class MechanicPortalContextModelSnapshot : ModelSnapshot
+    [Migration("20241009075325_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
@@ -30,9 +33,6 @@ namespace MechanicPortal.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateOnly>("DateAdded")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("DoB")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -43,7 +43,6 @@ namespace MechanicPortal.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasMaxLength(20)
                         .HasColumnType("TEXT");
 
                     b.HasKey("EmployeeId");

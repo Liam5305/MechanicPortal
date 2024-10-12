@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MechanicPortal.Migrations
 {
     [DbContext(typeof(MechanicPortalContext))]
-    [Migration("20241007115933_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241012101925_AddDateAddedToEmployee")]
+    partial class AddDateAddedToEmployee
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,14 +20,47 @@ namespace MechanicPortal.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
 
+            modelBuilder.Entity("MechanicPortal.Models.Employee", b =>
+                {
+                    b.Property<int>("EmployeeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateOnly>("DateAdded")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DoB")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("EmployeeId");
+
+                    b.ToTable("Employee");
+                });
+
             modelBuilder.Entity("MechanicPortal.Models.Vehicle", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("EngineS")
-                        .IsRequired()
+                    b.Property<decimal>("EngineS")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("FirstRegistered")
@@ -51,7 +84,7 @@ namespace MechanicPortal.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.HasKey("Id");
 

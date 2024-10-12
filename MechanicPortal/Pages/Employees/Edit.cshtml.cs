@@ -1,9 +1,15 @@
-﻿using MechanicPortal.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using MechanicPortal.Data;
+using MechanicPortal.Models;
 
-namespace MechanicPortal.Pages.Vehicles
+namespace MechanicPortal.Pages.Employees
 {
     public class EditModel : PageModel
     {
@@ -15,7 +21,7 @@ namespace MechanicPortal.Pages.Vehicles
         }
 
         [BindProperty]
-        public Vehicle Vehicle { get; set; } = default!;
+        public Employee Employee { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -24,12 +30,12 @@ namespace MechanicPortal.Pages.Vehicles
                 return NotFound();
             }
 
-            var vehicle = await _context.Vehicle.FirstOrDefaultAsync(m => m.Id == id);
-            if (vehicle == null)
+            var employee =  await _context.Employee.FirstOrDefaultAsync(m => m.EmployeeId == id);
+            if (employee == null)
             {
                 return NotFound();
             }
-            Vehicle = vehicle;
+            Employee = employee;
             return Page();
         }
 
@@ -42,7 +48,7 @@ namespace MechanicPortal.Pages.Vehicles
                 return Page();
             }
 
-            _context.Attach(Vehicle).State = EntityState.Modified;
+            _context.Attach(Employee).State = EntityState.Modified;
 
             try
             {
@@ -50,7 +56,7 @@ namespace MechanicPortal.Pages.Vehicles
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!VehicleExists(Vehicle.Id))
+                if (!EmployeeExists(Employee.EmployeeId))
                 {
                     return NotFound();
                 }
@@ -63,9 +69,9 @@ namespace MechanicPortal.Pages.Vehicles
             return RedirectToPage("./Index");
         }
 
-        private bool VehicleExists(int id)
+        private bool EmployeeExists(int id)
         {
-            return _context.Vehicle.Any(e => e.Id == id);
+            return _context.Employee.Any(e => e.EmployeeId == id);
         }
     }
 }

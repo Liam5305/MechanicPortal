@@ -1,9 +1,14 @@
-﻿using MechanicPortal.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using MechanicPortal.Data;
+using MechanicPortal.Models;
 
-namespace MechanicPortal.Pages.Vehicles
+namespace MechanicPortal.Pages.Employees
 {
     public class DetailsModel : PageModel
     {
@@ -14,7 +19,7 @@ namespace MechanicPortal.Pages.Vehicles
             _context = context;
         }
 
-        public Vehicle Vehicle { get; set; } = default!;
+        public Employee Employee { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -23,14 +28,14 @@ namespace MechanicPortal.Pages.Vehicles
                 return NotFound();
             }
 
-            var vehicle = await _context.Vehicle.FirstOrDefaultAsync(m => m.Id == id);
-            if (vehicle == null)
+            var employee = await _context.Employee.FirstOrDefaultAsync(m => m.EmployeeId == id);
+            if (employee == null)
             {
                 return NotFound();
             }
             else
             {
-                Vehicle = vehicle;
+                Employee = employee;
             }
             return Page();
         }
