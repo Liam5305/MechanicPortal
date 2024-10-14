@@ -1,18 +1,12 @@
 ﻿@page
-@model MechanicPortal.Pages.Vehicles.IndexModel
+@model MechanicPortal.Pages.Vehicles.ListModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "List";
 }
 
-<h1>Vehicles Portal</h1>
-<div class="text-left">
-    <h5>Use this page to add, edit, delete or view the details of vehicles that are being prepped for an MOT / Service.</h5>
-</div>
+<h1>Vehicle Manager</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -33,9 +27,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Vehicle[0].IsMOTd)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Vehicle[0].MOTTime)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Vehicle[0].Price)
@@ -65,15 +56,12 @@
                 @Html.DisplayFor(modelItem => item.IsMOTd)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MOTTime)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @* <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> | *@
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
-                @* <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a> *@
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

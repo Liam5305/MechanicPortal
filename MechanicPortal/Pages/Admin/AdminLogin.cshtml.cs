@@ -17,7 +17,7 @@ namespace MechanicPortal.Pages.Admin
             if (ModelState.IsValid)
             {
                 // TODO: Implement actual authentication logic here
-                if (LoginInput.Username == "admin" && LoginInput.Password == "123")
+                if (LoginInput.Username == "Admin" && LoginInput.Password == "123")
                 {
                     var claims = new List<Claim>
                     {

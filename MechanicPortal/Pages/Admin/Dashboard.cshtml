@@ -8,4 +8,7 @@
 
 <p>Welcome to the Admin Dashboard, @User.Identity.Name! Here you can perform administrative tasks.</p>
 
-<!-- Add your admin functionalities here -->
+<div class="mt-4">
+    <a asp-page="/Employees/List" class="btn btn-danger me-2">Employee Manager</a>
+    <a asp-page="/Vehicles/Delete" class="btn btn-danger">Vehicle Manager</a>
+</div>
