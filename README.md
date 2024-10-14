@@ -3,7 +3,7 @@
 **Pages | Index.cshtml**
 ![image](https://github.com/user-attachments/assets/aa4814c3-e2b3-45a6-89d1-c66dd2ee6577)
 
-**Employee | Index.cshtml**
+**Employee | Index.cshtml** [OLD]
 ![image](https://github.com/user-attachments/assets/59abb264-51f8-4314-8f3a-2a1fd546c0cd)
 
 **Employee | Index.cshtml**
