@@ -6,13 +6,13 @@
 **Employee | Index.cshtml** [OLD]
 ![image](https://github.com/user-attachments/assets/59abb264-51f8-4314-8f3a-2a1fd546c0cd)
 
-**Employee | Index.cshtml**
+**Employee | Index.cshtml** [OLD]
 ![image](https://github.com/user-attachments/assets/dd742ea5-f1b0-4779-a089-0cce36c67759)
 
 **Employee | Create.cshtml**
 ![image](https://github.com/user-attachments/assets/a9f00150-e61e-41c8-b571-e4aa09f02026)
 
-**Employee | Details.cshtml**
+**Employee | Details.cshtml** [OLD]
 ![image](https://github.com/user-attachments/assets/8381f475-8fdd-4d0e-9a66-71e075e28356)
 
 **Non-Admin**
@@ -26,13 +26,13 @@
 **Admin | AdminLogin.cshtml**
 ![image](https://github.com/user-attachments/assets/e6a1d9dd-20e4-4ee3-aad0-05b3fc9fb39a)
 
-**Vehicles | Index.cshtml**
+**Vehicles | Index.cshtml** [OLD]
 ![image](https://github.com/user-attachments/assets/3d930e51-70cc-4425-bba2-afba4c3b9f04)
 
 **Vehicles | Edit.cshtml**
 ![image](https://github.com/user-attachments/assets/596fd881-f9da-48e9-a571-37770ad92e90)
 
-**Vehicles | Details.cshtml**
+**Vehicles | Details.cshtml** [OLD]
 ![image](https://github.com/user-attachments/assets/0b59118e-3f79-49e6-919c-91ba77d959e5)
 
 **Non-Admin**
@@ -43,6 +43,6 @@
 **Vehicles | Delete.cshtml**
 ![image](https://github.com/user-attachments/assets/0693ab48-cc4a-4d2b-810f-82fb0cbf7c22)
 
-**Admin | Dashboard.cshtml**
+**Admin | Dashboard.cshtml** [OLD]
 ![image](https://github.com/user-attachments/assets/e6fc27ea-a561-47ef-a905-b420c0d07dc7)
 
