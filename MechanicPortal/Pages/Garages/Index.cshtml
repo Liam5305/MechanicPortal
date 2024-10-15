@@ -1,0 +1,60 @@
+﻿@page
+@model MechanicPortal.Pages.Garages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Garage Portal</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Garage[0].GarageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Garage[0].GarageDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Garage[0].GarageType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Garage[0].GarageLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Garage[0].AssignedEmployee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Garage) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GarageName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GarageDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GarageType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GarageLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedEmployee)
+            </td>
+            <td>
+@*                 <a asp-page="./Edit" asp-route-id="@item.GarageId">Edit</a> | *@
+                <a asp-page="./Details" asp-route-id="@item.GarageId">Details</a>
+@*                 <a asp-page="./Delete" asp-route-id="@item.GarageId">Delete</a> *@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

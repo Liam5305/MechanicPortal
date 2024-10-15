@@ -1,0 +1,55 @@
+﻿@page
+@model MechanicPortal.Pages.Garages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Garage</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Garage.GarageId" />
+            <div class="form-group">
+                <label asp-for="Garage.GarageName" class="control-label"></label>
+                <input asp-for="Garage.GarageName" class="form-control" />
+                <span asp-validation-for="Garage.GarageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Garage.GarageDescription" class="control-label"></label>
+                <input asp-for="Garage.GarageDescription" class="form-control" />
+                <span asp-validation-for="Garage.GarageDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Garage.GarageType" class="control-label"></label>
+                <input asp-for="Garage.GarageType" class="form-control" />
+                <span asp-validation-for="Garage.GarageType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Garage.GarageLocation" class="control-label"></label>
+                <input asp-for="Garage.GarageLocation" class="form-control" />
+                <span asp-validation-for="Garage.GarageLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Garage.AssignedEmployee" class="control-label"></label>
+                <input asp-for="Garage.AssignedEmployee" class="form-control" />
+                <span asp-validation-for="Garage.AssignedEmployee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
