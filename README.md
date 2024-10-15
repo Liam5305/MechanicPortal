@@ -1,48 +1,44 @@
 # **Mechanic Portal**
 
 **Pages | Index.cshtml**
-![image](https://github.com/user-attachments/assets/aa4814c3-e2b3-45a6-89d1-c66dd2ee6577)
+![image](https://github.com/user-attachments/assets/f1101da5-3c70-484e-ac2b-c027b063dd1c)
 
-**Employee | Index.cshtml** [OLD]
-![image](https://github.com/user-attachments/assets/59abb264-51f8-4314-8f3a-2a1fd546c0cd)
+**Employee | Index.cshtml** 
+![image](https://github.com/user-attachments/assets/7e4d209f-b572-4226-aeb6-18b730936a1e)
 
-**Employee | Index.cshtml** [OLD]
-![image](https://github.com/user-attachments/assets/dd742ea5-f1b0-4779-a089-0cce36c67759)
+**Employee | Index.cshtml** 
+![image](https://github.com/user-attachments/assets/b8c58fcf-52f2-4cef-a514-cb14f46fc6ed)
 
 **Employee | Create.cshtml**
-![image](https://github.com/user-attachments/assets/a9f00150-e61e-41c8-b571-e4aa09f02026)
+![image](https://github.com/user-attachments/assets/1ee78b55-8773-4311-b622-866870f2aefd)
 
-**Employee | Details.cshtml** [OLD]
-![image](https://github.com/user-attachments/assets/8381f475-8fdd-4d0e-9a66-71e075e28356)
+**Employee | Details.cshtml** 
+![image](https://github.com/user-attachments/assets/a271c08f-f6f6-4a0d-89fe-96549cab9e86)
 
-**Non-Admin**
-**Employee | Delete.cshtml**
-![image](https://github.com/user-attachments/assets/aeeaa2b2-7540-4bc3-b149-78eec9a19b88)
+**Vehicles | Index.cshtml**
+![image](https://github.com/user-attachments/assets/0e946eb3-451c-4360-ab91-aa4086441735)
+
+**Vehicles | Details.cshtml**
+![image](https://github.com/user-attachments/assets/a82093b7-3f7c-4845-98fe-5d7d72b5e18f)
+
+**Admin | Dashboard.cshtml**
+![image](https://github.com/user-attachments/assets/beed9c2b-5569-416a-8b1e-e81c869adf17)
 
 **Admin**
-**Employee | Delete.cshtml**
-![image](https://github.com/user-attachments/assets/aee4f27e-860f-43b8-b7c9-58b42820be3b)
+**Employee | List.cshtml**
+![image](https://github.com/user-attachments/assets/cf2e4a59-dc46-4cdf-9dea-c7f0aaaf5be3)
+
+**Admin**
+**Vehicle | List.cshtml**
+![image](https://github.com/user-attachments/assets/8a3fedad-96a3-44e8-9f0f-9363c713c0b8)
+
+**Admin**
+**Garage | List.cshtml**
+![image](https://github.com/user-attachments/assets/94621a99-dcd4-4cb4-bb92-bfb40eac0116)
 
 **Admin | AdminLogin.cshtml**
 ![image](https://github.com/user-attachments/assets/e6a1d9dd-20e4-4ee3-aad0-05b3fc9fb39a)
 
-**Vehicles | Index.cshtml** [OLD]
-![image](https://github.com/user-attachments/assets/3d930e51-70cc-4425-bba2-afba4c3b9f04)
-
-**Vehicles | Edit.cshtml**
-![image](https://github.com/user-attachments/assets/596fd881-f9da-48e9-a571-37770ad92e90)
-
-**Vehicles | Details.cshtml** [OLD]
-![image](https://github.com/user-attachments/assets/0b59118e-3f79-49e6-919c-91ba77d959e5)
-
-**Non-Admin**
-**Vehicles | Delete.cshtml**
-![image](https://github.com/user-attachments/assets/6b74bcac-a405-490a-8049-1b40bd0498a6)
-
 **Admin**
 **Vehicles | Delete.cshtml**
-![image](https://github.com/user-attachments/assets/0693ab48-cc4a-4d2b-810f-82fb0cbf7c22)
-
-**Admin | Dashboard.cshtml** [OLD]
-![image](https://github.com/user-attachments/assets/e6fc27ea-a561-47ef-a905-b420c0d07dc7)
-
+![image](https://github.com/user-attachments/assets/090c5366-254e-4c2a-aadc-527c3c5f6e32)
