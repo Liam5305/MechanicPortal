@@ -12,5 +12,7 @@ namespace MechanicPortal.Data
 
         public DbSet<MechanicPortal.Models.Vehicle> Vehicle { get; set; } = default!;
         public DbSet<MechanicPortal.Models.Employee> Employee { get; set; } = default!;
+
+        public DbSet<MechanicPortal.Models.Garage> Garage { get; set; } = default!;
     }
 }

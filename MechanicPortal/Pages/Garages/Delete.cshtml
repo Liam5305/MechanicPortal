@@ -1,0 +1,61 @@
+﻿@page
+@model MechanicPortal.Pages.Garages.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Garage</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Garage.GarageName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Garage.GarageName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Garage.GarageDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Garage.GarageDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Garage.GarageType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Garage.GarageType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Garage.GarageLocation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Garage.GarageLocation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Garage.AssignedEmployee)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Garage.AssignedEmployee)
+        </dd>
+    </dl>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form method="post">
+            <input type="hidden" asp-for="Garage.GarageId" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-page="./Index">Back to List</a>
+        </form>
+    }
+    else
+    {
+        <div class="only-admin" style="font: bold;">
+            <h5>Only Administrators can delete.</h5>
+        </div>
+    }
+</div>

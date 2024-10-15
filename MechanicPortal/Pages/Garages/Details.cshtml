@@ -1,0 +1,49 @@
+﻿@page
+@model MechanicPortal.Pages.Garages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Garage</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Garage.GarageName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Garage.GarageName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Garage.GarageDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Garage.GarageDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Garage.GarageType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Garage.GarageType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Garage.GarageLocation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Garage.GarageLocation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Garage.AssignedEmployee)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Garage.AssignedEmployee)
+        </dd>
+    </dl>
+</div>
+<div>
+@*     <a asp-page="./Edit" asp-route-id="@Model.Garage.GarageId">Edit</a> | *@
+    <a asp-page="./Index">Back to List</a>
+</div>
